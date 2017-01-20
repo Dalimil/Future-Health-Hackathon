@@ -7,8 +7,11 @@
 ### Setup
 
 ```sh
+git clone git@github.com:Dalimil/Future-Health-Hackathon.git
+cd Future-Health-Hackathon
 npm install -g yarn
 yarn
+yarn run prepare
 ```
 
 ### Run
