@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "echo Goto http://localhost:8000",
+    "start": "yarn run webpack",
     "chrome": "cordova run browser",
     "firefox": "cordova run browser --target firefox",
     "android": "cordova run android",
     "emulator": "cordova emulate android",
     "prepare": "cordova prepare",
-    "webpack-build": "webpack --progress -p",
-    "webpack-build-and-watch": "webpack --progress --watch"
+    "build": "webpack --progress -p",
+    "webpack": "webpack --progress --watch"
   },
   "repository": {
     "type": "git",

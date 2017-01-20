@@ -16,10 +16,6 @@ yarn run prepare
 
 ### Run
 ```sh
-yarn run all
-# now open localhost:8000 in browser
-
-# OR in 2 separate terminal tabs:
-yarn run webpack-dev-inline
-yarn run firefox # or yarn start
+yarn run webpack
+# Now open browser
 ```
