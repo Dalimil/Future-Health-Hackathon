@@ -16,11 +16,6 @@ yarn run prepare
 
 ### Run
 ```sh
-yarn start
-# OR
-yarn run firefox
-# OR 
-yarn run android
-# OR
-yarn run emulator
+yarn run all
+# now open localhost:8000 in browser
 ```
