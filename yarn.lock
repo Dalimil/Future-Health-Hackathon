@@ -1707,6 +1707,10 @@ forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
+framework7@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/framework7/-/framework7-1.5.2.tgz#29cf5241280f8e39622d1eeee648cc4d197ef63b"
+
 fresh@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.3.0.tgz#651f838e22424e7566de161d8358caa199f83d4f"

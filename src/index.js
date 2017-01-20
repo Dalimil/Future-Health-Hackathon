@@ -1,13 +1,12 @@
 
 import $ from 'jquery';
+import App from './App'
+
+window.$ = $;
 
 // DOM ready
 $(function() {
     console.log("DOM ready");
-
-    document.addEventListener("deviceready", onDeviceReady);
+    const app = new App();
 });
 
-function onDeviceReady() {
-    console.log("device ready");
-}
