@@ -4,12 +4,18 @@ class App {
     constructor() {
         console.log(Framework7);
 
+        this.$$ = Dom7;
         this.app = new Framework7({
             material: true
         });
-        this.$$ = Dom7;
-
+        this.mainView = this.app.addView('.view-main');
+        
         document.addEventListener("deviceready", this.onDeviceReady);
+
+        $("#welcome-continue-btn").click(() => {
+            console.log("clicked");
+            this.mainView.router.loadPage('messages.html');
+        });
     }
     
     onDeviceReady() {
