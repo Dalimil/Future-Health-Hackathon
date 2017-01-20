@@ -39,6 +39,8 @@ jspm_packages
 platforms/
 plugins/
 
+www/bundle.js
+
 .idea/
 
 *.jks

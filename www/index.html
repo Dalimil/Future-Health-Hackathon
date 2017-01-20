@@ -12,7 +12,11 @@
 
         <link rel="stylesheet" href="css/main.css">
         <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
+
+        <!-- Bundle from webpack-dev-server (hot reloading using web-sockets + iframe) -->
+		<script src="http://localhost:8081/bundle.js"></script>
+        <!-- Production bundle -->
+        <!--<script src="bundle.js"></script>-->
     </head>
     <body>
         <div class="app">

@@ -1,4 +1,5 @@
 
+import $ from 'jquery';
 
 // DOM ready
 $(function() {
