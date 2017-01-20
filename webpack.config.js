@@ -16,6 +16,11 @@ module.exports = {
 				query: {
 					presets: ["latest"]
 				}
+			},
+			// CSS modules
+			{
+				test: /\.css$/,
+				loader: "style-loader!css-loader"
 			}
 		]
 	}

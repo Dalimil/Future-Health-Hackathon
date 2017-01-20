@@ -2,6 +2,8 @@
 class App {
 
     constructor() {
+        console.log(Framework7);
+
         this.app = new Framework7({
             material: true
         });

@@ -10,17 +10,12 @@
         <meta name="theme-color" content="#2f3d44">
         <title>Future Health</title>
 
-        <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../node_modules/framework7/dist/css/framework7.material.min.css">
-        <link rel="stylesheet" href="../node_modules/framework7/dist/css/framework7.material.colors.min.css">
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="lib/framework7/dist/css/framework7.material.min.css">
+        <link rel="stylesheet" href="lib/framework7/dist/css/framework7.material.colors.min.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="cordova.js"></script>
-        <script src="../node_modules/framework7/dist/js/framework7.min.js"></script>
-
-        <!-- Bundle from webpack-dev-server (hot reloading using web-sockets + iframe) -->
-		<script src="http://localhost:8081/bundle.js"></script>
-        <!-- Production bundle -->
-        <!--<script src="bundle.js"></script>-->
+        <script src="bundle.js"></script>
     </head>
     <body>
         <!-- Status bar overlay for full screen mode (PhoneGap) -->
@@ -40,25 +35,51 @@
             <!-- Your main view, should have "view-main" class -->
             <div class="view view-main">
 
-                <!-- Top Navbar-->
-                <div class="navbar">
+                 <div class="navbar">
                     <div class="navbar-inner">
-                        <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
                         <div class="left">
                             <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
                         </div>
-                        <div class="center sliding">Awesome App</div>
+                        <div class="center">Sub Navbar</div>
+                        <div class="right"></div>
+                        <!-- Sub navbar -->
+                        <div class="subnavbar">
+                        <div class="buttons-row">
+                            <a href="#tab1" class="button tab-link active">Tab 1</a>
+                            <a href="#tab2" class="button tab-link">Tab 2</a>
+                            <a href="#tab3" class="button tab-link">Tab 3</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-                <div class="pages navbar-through toolbar-through">
-                    <!-- Page, "data-page" contains page name -->
-                    <div data-page="index" class="page">
-                        <div class="page-content">
-                            <p>Page content goes here</p>
+                <div class="pages navbar-fixed">
+                    <div data-page="home" class="page with-subnavbar">
+                        <div class="page-content hide-bars-on-scroll">
+                        <div class="tabs">
+                            <div id="tab1" class="tab active">
+                            <div class="content-block">
+                                <p>Lorem ipsum dolor ...</p>
+                                <p>In sed augue non ...</p>
+                            </div>
+                            </div>
+                            <div id="tab2" class="tab">
+                            <div class="content-block">
+                                <p>Donec iaculis ...</p>
+                                <p>Curabitur egestas, mi ...</p>
+                                <p>Donec iaculis posuere ...</p>
+                            </div>
+                            </div>
+                            <div id="tab3" class="tab">
+                            <div class="content-block">
+                                <p>Etiam non interdum erat...</p>
+                                <p>Duis ac semper risus. Suspendisse...</p>
+                                <p>Etiam non interdum erat...</p>
+                                <p>Duis ac semper risus. Suspendisse...</p>
+                            </div>
+                            </div>
                         </div>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>

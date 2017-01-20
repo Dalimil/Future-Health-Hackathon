@@ -4,16 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "all": "concurrently --kill-others \"yarn run webpack-dev-inline\" \"yarn run start\"",
-    "start": "cordova run browser",
+    "start": "echo Goto http://localhost:8000",
+    "chrome": "cordova run browser",
     "firefox": "cordova run browser --target firefox",
     "android": "cordova run android",
     "emulator": "cordova emulate android",
     "prepare": "cordova prepare",
     "webpack-build": "webpack --progress -p",
-    "webpack-build-and-watch": "webpack --progress --watch",
-    "webpack-dev-iframe": "webpack-dev-server --port 8081 --content-base http://localhost:8000",
-    "webpack-dev-inline": "webpack-dev-server --port 8081 --inline"
+    "webpack-build-and-watch": "webpack --progress --watch"
   },
   "repository": {
     "type": "git",
@@ -36,6 +34,8 @@
     "babel-loader": "^6.2.10",
     "babel-preset-latest": "^6.22.0",
     "concurrently": "^3.1.0",
+    "css-loader": "^0.26.1",
+    "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
