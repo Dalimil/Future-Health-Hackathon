@@ -16,6 +16,8 @@ class App {
             console.log("clicked");
             this.mainView.router.loadPage('messages.html');
         });
+
+        // if new visit open ^^^^ TODO
     }
     
     onDeviceReady() {
