@@ -1,0 +1,25 @@
+{
+  "name": "future-health",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cordova run browser",
+    "firefox": "cordova run browser --target firefox",
+    "android": "cordova run android",
+    "emulator": "cordova emulate android"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dalimil/Future-Health-Hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dalimil/Future-Health-Hackathon/issues"
+  },
+  "homepage": "https://github.com/Dalimil/Future-Health-Hackathon#readme",
+  "dependencies": {
+    "cordova": "^6.4.0"
+  }
+}
