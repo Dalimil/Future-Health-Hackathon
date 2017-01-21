@@ -33,6 +33,13 @@ class App {
 
         this.onMessagesInit();
         this.onSkeletonInit();
+        this.onHomeInit();
+    }
+
+    onHomeInit() {
+        this.app.onPageInit('home', (page) => {
+            $("#prof-description").text(this.storage.getItem(App.FIRST_VISIT_DATA));
+        });
     }
 
     onSkeletonInit() {
@@ -108,14 +115,16 @@ class App {
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
-            console.log("test")
-            $("#btn-introform-submit").click(() => {
-              console.log("clicked")
-              this.mainView.router.loadPage('index.html');  
-              var formData = myApp.formToData('#intro-form');
-              this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
-            });  
         }
+
+        this.app.onPageInit('intro', (page) => {
+            console.log("intro initialized");
+            $("#btn-introform-submit").click(() => {
+              const formData = this.app.formToData('#intro-form');
+              this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
+              this.mainView.router.loadPage('index.html');  
+            });  
+        });
     }
     
     onDeviceReady() {
