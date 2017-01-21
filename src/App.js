@@ -26,6 +26,36 @@ class App {
         $("#button-issue").click(() =>{
             this.mainView.router.loadPage('form.html');
         });
+
+        this.onMessagesInit();
+    }
+
+    onMessagesInit() {
+        this.app.onPageInit('messages', function (page) {
+            console.log("msg initialized");
+
+            $(".chat-discussion").animate({ scrollTop: "3000000px" });
+
+            $("#message-submit").click(() => {
+                const textval = $("#message-textarea").val();
+                if (!textval) return;
+
+                $(".chat-discussion").append(
+                    `<div class="chat-message left">
+                        <img class="message-avatar" src="img/a4.jpg" alt=""/>
+                        <div class="message">
+                            <a class="message-author" href="chat_view.html#"> Alex Smith </a>
+                            <span class="message-date"> Now </span>
+                            <span class="message-content">
+                            ${textval}
+                        </span>
+                        </div>
+                    </div>`
+                );
+                $(".chat-discussion").animate({ scrollTop: "3000000px" });
+                $("#message-textarea").val("");
+            });
+        });
     }
 
     checkFirstVisit() {

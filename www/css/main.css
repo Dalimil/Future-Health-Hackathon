@@ -15,8 +15,7 @@
 
 /* CHAT */
     .chat-discussion, .chat-users {
-        height: 70vh;
-        padding-right: 0;
+        height: calc(100vh - 150px);
     }
     .chat-user-name {
         padding: 0;
