@@ -30,7 +30,7 @@ class App {
 
     checkFirstVisit() {
         // comment out 'if' to debug
-        if (this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
+        if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
             //$(".nav-forward").show();
             this.mainView.router.loadPage('intro.html');
             this.storage.setItem(App.FIRST_VISIT_KEY, "-");
