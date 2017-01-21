@@ -9,6 +9,10 @@
     display: none !important;
 }
 
+.people-list img {
+    border-radius: 10%;
+}
+
 /* CHAT */
     .chat-discussion, .chat-users {
         height: 70vh;
