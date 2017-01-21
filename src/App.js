@@ -38,7 +38,8 @@ class App {
 
     onHomeInit() {
         this.app.onPageInit('home', (page) => {
-            $("#prof-description").text(this.storage.getItem(App.FIRST_VISIT_DATA));
+            const formData = JSON.parse(this.storage.getItem(App.FIRST_VISIT_DATA));
+            $("#prof-description").text(formData.name);
         });
     }
 
