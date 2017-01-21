@@ -16,8 +16,7 @@
         <link rel="stylesheet" href="css/extra.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="cordova.js"></script>
-        <!--<script src="bundle.js"></script>-->
-        <script src="http://localhost:8081/bundle.js"></script>
+        <script src="bundle.js"></script>
     </head>
     <body class="theme-teal">
         <!-- Status bar overlay for full screen mode (PhoneGap) -->
@@ -47,9 +46,9 @@
 
                         <div class="toolbar tabbar">
                             <div class="toolbar-inner">
-                            <a href="#tab1" class="tab-link active">Tab 1</a>
-                            <a href="#tab2" class="tab-link">Tab 2</a>
-                            <a href="#tab3" class="tab-link">Tab 3</a>
+                            <a href="#tab1" class="tab-link active">Home</a>
+                            <a href="#tab2" class="tab-link">Browse</a>
+                            <a href="#tab3" class="tab-link">Profile</a>
                             </div>
                         </div>
 
@@ -59,7 +58,7 @@
                                     <div class="content-block">
                                         <p>Lorem ipsum dolor ...</p>
                                         <p>In sed augue non ...</p>
-                                        <a href="#" class="button button-raised button-fill" id="welcome-continue-btn">Navigate</a>
+                                        <a href="#" class="button button-raised button-fill">Create new issue</a>
                                     </div>
                                 </div>
                                 <div id="tab2" class="tab">
@@ -70,11 +69,52 @@
                                     </div>
                                 </div>
                                 <div id="tab3" class="tab">
-                                    <div class="content-block">
-                                        <p>Etiam non interdum erat...</p>
-                                        <p>Duis ac semper risus. Suspendisse...</p>
-                                        <p>Etiam non interdum erat...</p>
-                                        <p>Duis ac semper risus. Suspendisse...</p>
+                                    <div class="col-lg-4">
+                                        <div class="widget-head-color-box navy-bg p-lg text-center">
+                                            <div class="m-b-md">
+                                            <h2 class="font-bold no-margins">
+                                                Alex Smith
+                                            </h2>
+                                                <small>description????</small>
+                                            </div>
+                                            <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                                            <div>
+                                                <span>35 Replies</span> | <span>10 Issues Solved</span><br />
+                                                <span><i class="fa fa-heart"></i> 632 Reputation</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-text-box">
+                                            <h4 class="media-heading">Alex Smith</h4>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                           
+                                        </div>
+                                        <div class="ibox-content">
+                                            <div>
+                                                <div>
+                                                    <span>Reward Points</span>
+                                                    <small class="pull-right">150/200</small>
+                                                </div>
+                                                <div class="progress progress-small">
+                                                    <div style="width: 60%;" class="progress-bar"></div>
+                                                </div>
+
+                                                <div>
+                                                    <span>Activity</span>
+                                                    <small class="pull-right">83%</small>
+                                                </div>
+                                                <div class="progress progress-small">
+                                                    <div style="width: 83%;" class="progress-bar"></div>
+                                                </div>
+
+                                                <div>
+                                                    <span>Experience</span>
+                                                    <small class="pull-right">400</small>
+                                                </div>
+                                                <div class="progress progress-small">
+                                                    <div style="width: 20%;" class="progress-bar progress-bar-danger"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
