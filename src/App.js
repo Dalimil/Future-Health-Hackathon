@@ -39,7 +39,19 @@ class App {
             this.onSkeletonInit();
 
             const formData = JSON.parse(this.storage.getItem(App.FIRST_VISIT_DATA));
-            $("#prof-description").text(formData.name);
+            $("#main-prof-name").text(formData.name);
+            $("#prof-gender").text(formData.gender);
+            $("#prof-age").text(formData.age);
+            $("#prof-location").text(formData.location);
+            formData["physical-ill"].forEach(name => {
+                $("#interest-chips").append(`<div class="chip"><div class="chip-label">${name}</div></div>`);
+            });
+            formData["mental"].forEach(name => {
+                $("#interest-chips").append(`<div class="chip"><div class="chip-label">${name}</div></div>`);
+            });
+            formData["internal"].forEach(name => {
+                $("#interest-chips").append(`<div class="chip"><div class="chip-label">${name}</div></div>`);
+            });
 
         });
     }
