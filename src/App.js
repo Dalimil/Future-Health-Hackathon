@@ -56,12 +56,13 @@ class App {
         });
 
         $("#severity-range").on("input", (e) => {
-            console.log(e.target.value);
+            //console.log(e.target.value);
             const sc = 10 + (e.target.value/100) * 80;
             $(".skeleton-view .pain").width(sc).height(sc);
         });
         $(".popover-about button").click(() => {
-            self.mainView.router.loadPage('messages.html');
+            self.app.closeModal(".popover-about");
+            self.mainView.router.loadPage('results.html');
         });
     }
 
