@@ -51,10 +51,10 @@ class App {
             .scrollLeft($("body").width()/4);
 
         $("#skeleton-internal").click(() => {
-            $(".skeleton-view img").attr("src", "img/internal.png");
+            $(".skeleton-view .pain").attr("src", "img/internal.png");
         });
         $("#skeleton-external").click(() => {
-            $(".skeleton-view img").attr("src", "img/external.png");
+            $(".skeleton-view .pain").attr("src", "img/external.png");
         });
 
         const self = this;
