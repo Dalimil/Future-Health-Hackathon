@@ -28,6 +28,22 @@ class App {
         });
 
         this.onMessagesInit();
+        this.onSkeletonInit();
+    }
+
+    onSkeletonInit() {
+        $(".skeleton-view")
+            .scrollTop($("body").height()/2)
+            .scrollLeft($("body").width()/4);
+        $("#skeleton-internal").click(() => {
+            $(".skeleton-view img").attr("src", "img/internal.png");
+        });
+        $("#skeleton-external").click(() => {
+            $(".skeleton-view img").attr("src", "img/external.png");
+        });
+        $(".skeleton-view img").click((e) => {
+            console.log(e.offsetX, e.offsetY);
+        });
     }
 
     onMessagesInit() {

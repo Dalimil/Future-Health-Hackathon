@@ -12,6 +12,17 @@
 .people-list img {
     border-radius: 10%;
 }
+.tabs, #tab2 {
+    height: 100%;
+}
+.skeleton-view {
+    overflow: scroll;
+    height: calc(100vh - 150px);
+    width: 100%;
+}
+.skeleton-view img {
+    width: 200%;
+}
 
 /* CHAT */
     .chat-discussion, .chat-users {

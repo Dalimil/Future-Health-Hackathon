@@ -59,7 +59,11 @@
                         <div class="page-content hide-bars-on-scroll">
                             <div class="tabs">
                                 <div id="tab1" class="tab active">
+                                    
                                     <div class="content-block">
+                                        Tags: <input type="text" data-role="tagsinput" />
+                                        <a href="#" class="button button-raised button-fill" id="button-issue">Create new issue</a>
+                                    
                                          <h2>People who need your help:</h2>
                                    </div>
                                      <div class="list-block media-list people-list">
@@ -120,16 +124,15 @@
                                              </a>
                                              </li>
                                          </ul>
-                                        </div>
-                                        <a href="#" class="button button-raised button-fill" id="button-issue">Create new issue</a>
-                                    
+                                        </div>                                        
                                 </div>
                                 <div id="tab2" class="tab">
-                                    <div class="content-block">
-                                        <p>Donec iaculis ...</p>
-                                        <p>Curabitur egestas, mi ...</p>
-                                        <p>Donec iaculis posuere ...</p>
-                                        Tags: <input type="text" data-role="tagsinput" />
+                                    <div class="skeleton-view">
+                                        <img src="img/internal.png" />
+                                    </div>
+                                    <div style="display:flex; width:100%;height:46px;">
+                                        <button id="skeleton-internal" style="width: 100%;height:100%;" class="button button-fill color-cyan">INTERNAL</button>
+                                        <button id="skeleton-external" style="width: 100%;height:100%;" class="button button-fill color-orange">EXTERNAL</button>
                                     </div>
                                 </div>
                                 <div id="tab3" class="tab">
