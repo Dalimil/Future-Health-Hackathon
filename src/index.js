@@ -1,9 +1,10 @@
 
 import $ from 'jquery';
-import "framework7";
-import App from './App'
-
 window.$ = $;
+window.jQuery = $;
+import "framework7";
+import App from './App';
+
 
 // DOM ready
 $(function() {

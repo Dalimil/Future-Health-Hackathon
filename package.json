@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/Dalimil/Future-Health-Hackathon#readme",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-tagsinput": "^0.7.1",
     "cordova": "^6.4.0",
     "font-awesome": "^4.7.0",
     "framework7": "^1.5.2",
