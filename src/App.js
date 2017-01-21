@@ -17,6 +17,7 @@ class App {
         this.app = new Framework7({
             material: true
         });
+
         this.mainView = this.app.addView('.view-main');
 
         document.addEventListener("deviceready", this.onDeviceReady);
@@ -62,11 +63,11 @@ class App {
             .scrollTop($("body").height()/2)
             .scrollLeft($("body").width()/4);
 
-        $("#skeleton-internal").click(() => {
-            $(".skeleton-view .main").attr("src", "img/internal.png");
-        });
         $("#skeleton-external").click(() => {
             $(".skeleton-view .main").attr("src", "img/external.png");
+        });
+        $("#skeleton-internal").click(() => {
+            $(".skeleton-view .main").attr("src", "img/internal.png");
         });
 
         const self = this;
@@ -126,19 +127,33 @@ class App {
         // comment out 'if' to debug
         if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
             //$(".nav-forward").show();
-            this.mainView.router.loadPage('intro.html');
+            this.mainView.router.loadPage('hello.html');
             this.storage.setItem(App.FIRST_VISIT_KEY, "-");
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
         }
 
+        this.app.onPageInit('hello', (page) => {
+            console.log("hello initialized");
+            $("#btn-next").click(() => {
+              this.mainView.router.loadPage('intro.html');  
+            });  
+        });
+
+        this.app.onPageInit('avatar', (page) => {
+            console.log("avatar initialized");
+            $("#btn-next-ava").click(() => {
+              this.mainView.router.loadPage('index.html');  
+            });  
+        });
+
         this.app.onPageInit('intro', (page) => {
             console.log("intro initialized");
             $("#btn-introform-submit").click(() => {
               const formData = this.app.formToData('#intro-form');
               this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
-              this.mainView.router.loadPage('index.html');  
+              this.mainView.router.loadPage('avatar.html');  
             });  
         });
     }
