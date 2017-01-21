@@ -21,8 +21,6 @@ class App {
 
         document.addEventListener("deviceready", this.onDeviceReady);
 
-        this.checkFirstVisit();
-
         $(".nav-messages").click(() => {
             this.mainView.router.loadPage('messages.html');
         });
@@ -32,21 +30,26 @@ class App {
         });
 
         this.onMessagesInit();
-        this.onSkeletonInit();
         this.onHomeInit();
+        this.checkFirstVisit();
     }
 
     onHomeInit() {
         this.app.onPageInit('home', (page) => {
+            this.onSkeletonInit();
+
             const formData = JSON.parse(this.storage.getItem(App.FIRST_VISIT_DATA));
             $("#prof-description").text(formData.name);
+
         });
     }
 
     onSkeletonInit() {
+        console.log("ok");
         $(".skeleton-view")
             .scrollTop($("body").height()/2)
             .scrollLeft($("body").width()/4);
+
         $("#skeleton-internal").click(() => {
             $(".skeleton-view img").attr("src", "img/internal.png");
         });
