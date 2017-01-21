@@ -83,6 +83,7 @@ class App {
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
+            
         }
     }
     
