@@ -1,0 +1,38 @@
+.welcome-line {
+    font-size: 1.3em;
+    color: #444;
+    display: block;
+    margin-bottom: 0.1em;
+}
+
+.nav-forward {
+    display: none !important;
+}
+
+/* CHAT */
+    .chat-discussion, .chat-users {
+        height: 70vh;
+        padding-right: 0;
+    }
+    .chat-user-name {
+        padding: 0;
+        margin-left: 5px;
+    }
+    .chat-user {
+        display: flex;
+    }
+    .chat-user img {
+        float: none;
+    }
+    .chat-avatar {
+        margin-right: 5px;
+    }
+    .chat-message {
+        padding: 5px 0 0 5px;
+    }
+    label {
+        font-weight: unset;
+    }
+    .col-xs-9, .col-xs-3, .col-xs-8 {
+        padding: 0;
+    }
