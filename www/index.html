@@ -28,12 +28,26 @@
         <!-- Panels overlay-->
         <div class="panel-overlay"></div>
 
+
         <!-- Views -->
         <div class="views">
             <!-- Your main view, should have "view-main" class -->
             <div class="view view-main">
+                
+                <div class="popover popover-about">
+                    <div class="popover-angle"></div>
+                    <div class="popover-inner">
+                    <div class="content-block">
+                        Severity: <input id="severity-range" class="form-control" min="0" max="100" value="30" step="0.1" type="range" />
+                        <input class="form-control" type="text" placeholder="Description" />
+                        <input style="width: 100%" class="form-control" type="text" data-role="tagsinput" placeholder="Add tags"/>
+                        <button style="margin: 10px 0 0 auto;" class="button button-fill button-raised">Submit</button>
+                    </div>
+                    </div>
+                </div>
 
                 <div class="pages navbar-fixed">
+                          
                     <div class="page with-subnavbar" data-page="home">
 
                         <div class="navbar">
@@ -61,7 +75,6 @@
                                 <div id="tab1" class="tab active">
                                     
                                     <div class="content-block">
-                                        Tags: <input type="text" data-role="tagsinput" />
                                         <a href="#" class="button button-raised button-fill" id="button-issue">Create new issue</a>
                                     
                                          <h2>People who need your help:</h2>
@@ -128,13 +141,17 @@
                                 </div>
                                 <div id="tab2" class="tab">
                                     <div class="skeleton-view">
-                                        <img src="img/internal.png" />
+                                        <img class="main" src="img/internal.png" />
+                                        <img class="pain" src="img/pain.png" />
                                     </div>
+                                    <div class="modal-overlay"></div>
+
                                     <div style="display:flex; width:100%;height:46px;">
                                         <button id="skeleton-internal" style="width: 100%;height:100%;" class="button button-fill color-cyan">INTERNAL</button>
                                         <button id="skeleton-external" style="width: 100%;height:100%;" class="button button-fill color-orange">EXTERNAL</button>
                                     </div>
                                 </div>
+
                                 <div id="tab3" class="tab">
                                     <div class="col-lg-4">
                                         <div class="widget-head-color-box navy-bg p-lg text-center">

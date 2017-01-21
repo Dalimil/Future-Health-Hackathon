@@ -20,8 +20,16 @@
     height: calc(100vh - 150px);
     width: 100%;
 }
-.skeleton-view img {
+.skeleton-view .main {
     width: 200%;
+}
+.skeleton-view .pain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 35px;
+    height: 35px;
 }
 
 /* CHAT */

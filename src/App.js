@@ -41,8 +41,27 @@ class App {
         $("#skeleton-external").click(() => {
             $(".skeleton-view img").attr("src", "img/external.png");
         });
-        $(".skeleton-view img").click((e) => {
+
+        const self = this;
+        $(".skeleton-view .main").click(function(e){
             console.log(e.offsetX, e.offsetY);
+            console.log(e.clientX, e.clientY);
+            $(".skeleton-view .pain").css({
+                top: (e.clientY - 15) + "px",
+                left: (e.clientX - 15)+ "px"
+            }).show();
+
+            const clickedLink = this;
+            self.app.popover('.popover-about', $("#skeleton-external")[0]);
+        });
+
+        $("#severity-range").on("input", (e) => {
+            console.log(e.target.value);
+            const sc = 10 + (e.target.value/100) * 80;
+            $(".skeleton-view .pain").width(sc).height(sc);
+        });
+        $(".popover-about button").click(() => {
+            self.mainView.router.loadPage('messages.html');
         });
     }
 
