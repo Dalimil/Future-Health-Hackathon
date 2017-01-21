@@ -5,6 +5,10 @@ class App {
         return "storage-first-visit";
     }
 
+    static get FIRST_VISIT_DATA(){
+        return "storage-first-visit-data";
+    }
+
     constructor() {
         console.log(Framework7);
 
@@ -71,6 +75,7 @@ class App {
                 $(".chat-discussion").animate({ scrollTop: "3000000px" });
                 $("#message-textarea").val("");
             });
+            console.log(App.FIRST_VISIT_DATA)
         });
     }
 
@@ -83,7 +88,13 @@ class App {
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
-            
+            console.log("test")
+            $("#btn-introform-submit").click(() => {
+              console.log("clicked")
+              this.mainView.router.loadPage('index.html');  
+              var formData = myApp.formToData('#intro-form');
+              this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
+            });  
         }
     }
     
