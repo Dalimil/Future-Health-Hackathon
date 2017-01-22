@@ -34,12 +34,25 @@ class App {
     }   
 
     onResultsInit() {
+
+
         this.app.onPageInit('results', (page) => {
             $(".swipeout-solved").click((e) => {
                 $(e.target).parent().parent().css("background-color", "lightgreen");
                 $(".swipeout-content").css("transform", "");
                 $(".swipeout-actions-left > *").css("transform", "");
-                this.app.alert("Was it helpful?", "Rating");
+                this.app.alert(` 
+                    <select id="rating"> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>`, "Rating");
+                
+                $('#rating').barrating({
+                theme: 'fontawesome-stars'
+                    });
             });
 
             $("#tab-x1 a.item-link").click((e) => {
