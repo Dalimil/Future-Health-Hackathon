@@ -62,41 +62,34 @@
         padding: 0;
     }
 
-.br-theme-fontawesome-stars .br-widget {
-  height: 28px;
-  white-space: nowrap;
+
+/* INTRO */
+.swiper-container {
+  height: calc(100vh - 70px);
 }
-.br-theme-fontawesome-stars .br-widget a {
-  font: normal normal normal 20px/1 FontAwesome;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  text-decoration: none;
-  margin-right: 2px;
+.swiper-slide {
+  background:#fff;
 }
-.br-theme-fontawesome-stars .br-widget a:after {
-  content: '\f005';
-  color: #d2d2d2;
+.swiper-slide span {
+  text-align:center;
+  display:block;
+  margin:20px;
+  font-size:21px;
 }
-.br-theme-fontawesome-stars .br-widget a.br-active:after {
-  color: #EDB867;
+#swiper-logo {
+    width: 80%;
+    position: absolute;
+    top: 100px;
+    right: 0;
 }
-.br-theme-fontawesome-stars .br-widget a.br-selected:after {
-  color: #EDB867;
+#swiper-hello {
+    width: 70%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    margin: 20px;
 }
-.br-theme-fontawesome-stars .br-widget .br-current-rating {
-  display: none;
+#intro-form {
+    margin-top: 0;
 }
-.br-theme-fontawesome-stars .br-readonly a {
-  cursor: default;
-}
-@media print {
-  .br-theme-fontawesome-stars .br-widget a:after {
-    content: '\f006';
-    color: black;
-  }
-  .br-theme-fontawesome-stars .br-widget a.br-active:after,
-  .br-theme-fontawesome-stars .br-widget a.br-selected:after {
-    content: '\f005';
-    color: black;
-  }
-}    

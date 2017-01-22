@@ -12,6 +12,9 @@ class App {
     static get MSG_DATA() {
         return "storage-msg-data";
     }
+    static get MSG_NAME() {
+        return "storage-msg-name";
+    }
 
     constructor() {
         console.log(Framework7);
@@ -57,11 +60,17 @@ class App {
 
             $("#tab-x1 a.item-link").click((e) => {
                 const imgurl = ($(e.target).parent().parent().parent().find("img")[0].src);
+                const msgtext = ($(e.target).parent().parent().parent().find(".item-title").text());
+                console.log(msgtext);
                 this.storage.setItem(App.MSG_DATA, imgurl);
+                this.storage.setItem(App.MSG_NAME, msgtext);
             });
             $("#tab-x2 a.item-link").click((e) => {
                 const imgurl = ($(e.target).parent().parent().find("img")[0].src);
+                const msgtext = ($(e.target).parent().parent().find(".item-title").text());
+                console.log(msgtext);
                 this.storage.setItem(App.MSG_DATA, imgurl);
+                this.storage.setItem(App.MSG_NAME, msgtext);
             });
         });
     }
@@ -88,10 +97,20 @@ class App {
                 $("#interest-chips").append(`<div class="chip"><div class="chip-label">${name}</div></div>`);
             });
 
+            $("#tab1 a.item-link").click((e) => {
+                const imgurl = ($(e.target).parent().parent().find("img")[0].src);
+                const msgtext = ($(e.target).parent().parent().find(".item-title").text());
+                console.log(msgtext);
+                this.storage.setItem(App.MSG_DATA, imgurl);
+                this.storage.setItem(App.MSG_NAME, msgtext);
+            });
+
         });
     }
 
     onSkeletonInit() {
+        console.log("skel init");
+
         $(".skeleton-view")
             .scrollTop($("body").height()/2)
             .scrollLeft($("body").width()/4);
@@ -132,9 +151,14 @@ class App {
             console.log("msg initialized");
 
             const imgurl = localStorage.getItem(App.MSG_DATA);
+            const msgname = localStorage.getItem(App.MSG_NAME);
             if(imgurl != null) {
+                $("#swap-msg-name").text(msgname);
                 $("#swap-msg-img").attr("src", imgurl);
             }
+
+            const formData = JSON.parse(localStorage.getItem(App.FIRST_VISIT_DATA));
+            $("#msg-my-name").text(formData.name);
 
             $(".chat-discussion").animate({ scrollTop: "3000000px" });
 
@@ -142,12 +166,16 @@ class App {
                 const textval = $("#message-textarea").val();
                 if (!textval) return;
 
+                const minutes = new Date().getMinutes().toString();
+
+                const tt = new Date().getHours() + ":" + (minutes.length == 1 ? ("0" + minutes) : minutes);
+
                 $(".chat-discussion").append(
                     `<div class="chat-message left">
                         <img class="message-avatar" src="img/avatar.png" alt=""/>
                         <div class="message">
-                            <a class="message-author" href="chat_view.html#"> Alex Smith </a>
-                            <span class="message-date"> Now </span>
+                            <a class="message-author" href="chat_view.html#">${formData.name}</a>
+                            <span class="message-date">${tt}</span>
                             <span class="message-content">
                             ${textval}
                         </span>
@@ -170,6 +198,10 @@ class App {
               this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
               this.mainView.router.loadPage('index.html');  
             });  
+
+            this.introSwiper = this.app.swiper('.swiper-container', {
+                pagination:'.swiper-pagination'
+            });
         });
 
         if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
@@ -189,6 +221,8 @@ class App {
     
     onDeviceReady() {
         console.log("device ready");
+
+		document.addEventListener("backbutton", () => {});
 
     }
 }
