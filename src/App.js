@@ -9,6 +9,10 @@ class App {
         return "storage-first-visit-data";
     }
 
+    static get MSG_DATA() {
+        return "storage-msg-data";
+    }
+
     constructor() {
         console.log(Framework7);
 
@@ -26,7 +30,25 @@ class App {
         this.onMessagesInit();
         this.onHomeInit();
         this.checkFirstVisit();
+        this.onResultsInit();
+    }   
 
+    onResultsInit() {
+        this.app.onPageInit('results', (page) => {
+            $(".swipeout-solved").click((e) => {
+                $(e.target).parent().parent().css("background-color", "lightgreen");
+                this.app.alert("Was it helpful?", "Rating");
+            });
+
+            $("#tab-x1 a.item-link").click((e) => {
+                const imgurl = ($(e.target).parent().parent().parent().find("img")[0].src);
+                this.storage.setItem(App.MSG_DATA, imgurl);
+            });
+            $("#tab-x2 a.item-link").click((e) => {
+                const imgurl = ($(e.target).parent().parent().find("img")[0].src);
+                this.storage.setItem(App.MSG_DATA, imgurl);
+            });
+        });
     }
 
     onHomeInit() {
@@ -94,6 +116,11 @@ class App {
         this.app.onPageInit('messages', function (page) {
             console.log("msg initialized");
 
+            const imgurl = localStorage.getItem(App.MSG_DATA);
+            if(imgurl != null) {
+                $("#swap-msg-img").attr("src", imgurl);
+            }
+
             $(".chat-discussion").animate({ scrollTop: "3000000px" });
 
             $("#message-submit").click(() => {
@@ -102,7 +129,7 @@ class App {
 
                 $(".chat-discussion").append(
                     `<div class="chat-message left">
-                        <img class="message-avatar" src="img/a4.jpg" alt=""/>
+                        <img class="message-avatar" src="img/avatar.png" alt=""/>
                         <div class="message">
                             <a class="message-author" href="chat_view.html#"> Alex Smith </a>
                             <span class="message-date"> Now </span>
