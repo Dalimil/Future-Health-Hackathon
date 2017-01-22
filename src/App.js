@@ -151,7 +151,9 @@ class App {
                 const textval = $("#message-textarea").val();
                 if (!textval) return;
 
-                const tt = new Date().getHours() + ":" + new Date().getMinutes();
+                const minutes = new Date().getMinutes().toString();
+
+                const tt = new Date().getHours() + ":" + (minutes.length == 1 ? ("0" + minutes) : minutes);
 
                 $(".chat-discussion").append(
                     `<div class="chat-message left">
