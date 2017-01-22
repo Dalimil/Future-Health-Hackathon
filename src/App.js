@@ -22,14 +22,19 @@ class App {
 
         document.addEventListener("deviceready", this.onDeviceReady);
 
+        this.skeletonInitialized = false;
         this.onMessagesInit();
         this.onHomeInit();
         this.checkFirstVisit();
+
     }
 
     onHomeInit() {
         this.app.onPageInit('home', (page) => {
-            this.onSkeletonInit();
+            if (!this.skeletonInitialized) {
+                this.skeletonInitialized = true;
+                this.onSkeletonInit();
+            }
 
             const formData = JSON.parse(this.storage.getItem(App.FIRST_VISIT_DATA));
             $("#main-prof-name").text(formData.name);
@@ -115,15 +120,6 @@ class App {
     }
 
     checkFirstVisit() {
-        // comment out 'if' to debug
-        if (this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
-            //$(".nav-forward").show();
-            this.mainView.router.loadPage('intro.html');
-            this.storage.setItem(App.FIRST_VISIT_KEY, "-");
-            /*$(".nav-forward").click(function() {
-                $(this).hide();
-            });*/
-        }
 
         this.app.onPageInit('intro', (page) => {
             console.log("intro initialized");
@@ -133,6 +129,20 @@ class App {
               this.mainView.router.loadPage('index.html');  
             });  
         });
+
+        if (this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
+            //$(".nav-forward").show();
+            this.mainView.router.loadPage('intro.html');
+            this.storage.setItem(App.FIRST_VISIT_KEY, "-");
+            /*$(".nav-forward").click(function() {
+                $(this).hide();
+            });*/
+        } else {
+            if (!this.skeletonInitialized) {
+                this.skeletonInitialized = true;
+                this.onSkeletonInit();
+            }
+        }
     }
     
     onDeviceReady() {
