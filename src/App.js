@@ -34,6 +34,7 @@ class App {
         this.onHomeInit();
         this.checkFirstVisit();
         this.onResultsInit();
+        this.onSkeletonInit();
     }   
 
     onResultsInit() {
@@ -77,10 +78,7 @@ class App {
 
     onHomeInit() {
         this.app.onPageInit('home', (page) => {
-            if (!this.skeletonInitialized) {
-                this.skeletonInitialized = true;
-                this.onSkeletonInit();
-            }
+            this.onSkeletonInit();
 
             const formData = JSON.parse(this.storage.getItem(App.FIRST_VISIT_DATA));
             $("#main-prof-name").text(formData.name);
@@ -211,11 +209,6 @@ class App {
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
-        } else {
-            if (!this.skeletonInitialized) {
-                this.skeletonInitialized = true;
-                this.onSkeletonInit();
-            }
         }
     }
     
