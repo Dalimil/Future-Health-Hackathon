@@ -152,3 +152,7 @@
 .avatar-choice:hover {
     cursor: pointer;
 }
+
+.swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 1px;
+}
