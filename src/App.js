@@ -37,6 +37,8 @@ class App {
         this.app.onPageInit('results', (page) => {
             $(".swipeout-solved").click((e) => {
                 $(e.target).parent().parent().css("background-color", "lightgreen");
+                $(".swipeout-content").css("transform", "");
+                $(".swipeout-actions-left > *").css("transform", "");
                 this.app.alert("Was it helpful?", "Rating");
             });
 
@@ -157,7 +159,7 @@ class App {
             });  
         });
 
-        if (this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
+        if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
             //$(".nav-forward").show();
             this.mainView.router.loadPage('intro.html');
             this.storage.setItem(App.FIRST_VISIT_KEY, "-");
