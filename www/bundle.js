@@ -27959,6 +27959,11 @@
 	        get: function get() {
 	            return "storage-msg-name";
 	        }
+	    }, {
+	        key: "MY_AVATAR",
+	        get: function get() {
+	            return "storage-user-avatar";
+	        }
 	    }]);
 
 	    function App() {
@@ -28047,6 +28052,11 @@
 	                    _this2.storage.setItem(App.MSG_DATA, imgurl);
 	                    _this2.storage.setItem(App.MSG_NAME, msgtext);
 	                });
+
+	                var userAvatar = _this2.storage.getItem(App.MY_AVATAR);
+	                if (userAvatar != null) {
+	                    $("#prof-pict").attr("src", userAvatar);
+	                }
 	            });
 	        }
 	    }, {
@@ -28099,6 +28109,11 @@
 	                    $("#swap-msg-img").attr("src", imgurl);
 	                }
 
+	                var userAvatar = localStorage.getItem(App.MY_AVATAR);
+	                if (userAvatar != null) {
+	                    $("#first-msg-avatar").attr("src", userAvatar);
+	                }
+
 	                var formData = JSON.parse(localStorage.getItem(App.FIRST_VISIT_DATA));
 	                $("#msg-my-name").text(formData.name);
 
@@ -28108,11 +28123,12 @@
 	                    var textval = $("#message-textarea").val();
 	                    if (!textval) return;
 
+	                    var userAvatar = localStorage.getItem(App.MY_AVATAR);
 	                    var minutes = new Date().getMinutes().toString();
 
 	                    var tt = new Date().getHours() + ":" + (minutes.length == 1 ? "0" + minutes : minutes);
 
-	                    $(".chat-discussion").append("<div class=\"chat-message left\">\n                        <img class=\"message-avatar\" src=\"img/avatar.png\" alt=\"\"/>\n                        <div class=\"message\">\n                            <a class=\"message-author\" href=\"chat_view.html#\">" + formData.name + "</a>\n                            <span class=\"message-date\">" + tt + "</span>\n                            <span class=\"message-content\">\n                            " + textval + "\n                        </span>\n                        </div>\n                    </div>");
+	                    $(".chat-discussion").append("<div class=\"chat-message left\">\n                        <img class=\"message-avatar\" src=\"" + (userAvatar ? userAvatar : "img/avatar.png") + "\" alt=\"\"/>\n                        <div class=\"message\">\n                            <a class=\"message-author\" href=\"chat_view.html#\">" + formData.name + "</a>\n                            <span class=\"message-date\">" + tt + "</span>\n                            <span class=\"message-content\">\n                            " + textval + "\n                        </span>\n                        </div>\n                    </div>");
 	                    $(".chat-discussion").animate({ scrollTop: "3000000px" });
 	                    $("#message-textarea").val("");
 	                });
@@ -28134,6 +28150,13 @@
 
 	                _this3.introSwiper = _this3.app.swiper('.swiper-container', {
 	                    pagination: '.swiper-pagination'
+	                });
+
+	                $(".avatar-choice > img").click(function (e) {
+	                    console.log("now");
+	                    $(".avatar-choice > img").removeClass("active");
+	                    $(e.target).addClass("active");
+	                    _this3.storage.setItem(App.MY_AVATAR, e.target.src);
 	                });
 	            });
 

@@ -16,6 +16,10 @@ class App {
         return "storage-msg-name";
     }
 
+    static get MY_AVATAR() {
+        return "storage-user-avatar";
+    }
+
     constructor() {
         console.log(Framework7);
 
@@ -103,6 +107,11 @@ class App {
                 this.storage.setItem(App.MSG_NAME, msgtext);
             });
 
+            const userAvatar = this.storage.getItem(App.MY_AVATAR);
+            if ( userAvatar != null) {
+                $("#prof-pict").attr("src", userAvatar);
+            }
+
         });
     }
 
@@ -155,6 +164,11 @@ class App {
                 $("#swap-msg-img").attr("src", imgurl);
             }
 
+            const userAvatar = localStorage.getItem(App.MY_AVATAR);
+            if (userAvatar != null) {
+                $("#first-msg-avatar").attr("src", userAvatar);
+            }
+
             const formData = JSON.parse(localStorage.getItem(App.FIRST_VISIT_DATA));
             $("#msg-my-name").text(formData.name);
 
@@ -164,13 +178,14 @@ class App {
                 const textval = $("#message-textarea").val();
                 if (!textval) return;
 
+                const userAvatar = localStorage.getItem(App.MY_AVATAR);
                 const minutes = new Date().getMinutes().toString();
 
                 const tt = new Date().getHours() + ":" + (minutes.length == 1 ? ("0" + minutes) : minutes);
 
                 $(".chat-discussion").append(
                     `<div class="chat-message left">
-                        <img class="message-avatar" src="img/avatar.png" alt=""/>
+                        <img class="message-avatar" src="${userAvatar ? userAvatar : "img/avatar.png" }" alt=""/>
                         <div class="message">
                             <a class="message-author" href="chat_view.html#">${formData.name}</a>
                             <span class="message-date">${tt}</span>
@@ -199,6 +214,13 @@ class App {
 
             this.introSwiper = this.app.swiper('.swiper-container', {
                 pagination:'.swiper-pagination'
+            });
+
+            $(".avatar-choice > img").click((e) => {
+                console.log("now");
+                $(".avatar-choice > img").removeClass("active");
+                $(e.target).addClass("active");
+                this.storage.setItem(App.MY_AVATAR, e.target.src);
             });
         });
 

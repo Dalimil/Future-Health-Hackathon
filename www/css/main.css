@@ -132,3 +132,22 @@
     color: black;
   }
 }
+
+
+
+/* intro */
+.avatar-choice {
+    display: flex;
+}
+.avatar-choice > img {
+    margin: 10px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.avatar-choice > img.active {
+    border: 5px solid #00BCD4;
+}
+.avatar-choice:hover {
+    cursor: pointer;
+}
