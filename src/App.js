@@ -209,6 +209,8 @@ class App {
     onDeviceReady() {
         console.log("device ready");
 
+		document.addEventListener("backbutton", () => {});
+
     }
 }
 
