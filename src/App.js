@@ -96,6 +96,8 @@ class App {
     }
 
     onSkeletonInit() {
+        console.log("skel init");
+
         $(".skeleton-view")
             .scrollTop($("body").height()/2)
             .scrollLeft($("body").width()/4);
@@ -183,6 +185,10 @@ class App {
               this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
               this.mainView.router.loadPage('index.html');  
             });  
+
+            this.introSwiper = this.app.swiper('.swiper-container', {
+                pagination:'.swiper-pagination'
+            });
         });
 
         if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {

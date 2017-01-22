@@ -9,10 +9,21 @@
 	</div>
 
 	<div class="page-content">
-		<div class="content-block-title">Before we start, we need a few details...
-		</div>
+
 		<form id="intro-form" class="list-block">
-            <div class="item-content">
+
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img id="swiper-hello" src="img/hello.png" />
+					<img id="swiper-logo" src="img/logo.png" />
+				</div>
+				<div class="swiper-slide">
+					<div class="content-block-title">
+						Before we start, we will need a few details...
+					</div>
+
+					<div class="item-content">
                 <div class="item-inner">
                     <div class="item-title floating-label">First Name</div>
                         <div class="item-input">
@@ -44,65 +55,75 @@
                         </div>
             	</div>
         	</div>
-        	<div class="content-block-title">Select categories you can give advice on:</div>
-        	<div class="list-block">
-        	<ul>
-        		<li>
-					<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
-            		<select name="physical-ill" multiple>
-            			<option value="rash">Rash</option>
-			            <option value="joint-pain">Joint Pain</option>
-            		</select>
-            		<div class="item-content">
-                		<div class="item-inner">
-                		<div class="item-title-row">
-                			<div class="item-title">Physical Illness</div>
-                    		<div class="item-text">Advise on available methods, where to get it, how to use it and answer any worries or questions.</div>
-                		</div>
-                		</div>
-            		</div>
-            		</a>
-            	</li>
-
-            	<li>
-            		<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
-            		<select name="mental" multiple>
-			            <option value="dementia">Dementia</option>
-			            <option value="drink">Drinking Habit</option>
-			            <option value="sleep-deprive">Sleep Deprivation</option>
-            		</select>
-            		<div class="item-content">
-                		<div class="item-inner">
-                		<div class="item-title-row">
-                			<div class="item-title">Mental Well-being</div>
-                    		<div class="item-text">Suggestions on available methods, where to get it, how to use it and answer any worries or questions.</div>
-                		</div>
-                		</div>
-            		</div>
-            		</a>
-				</li>
 				
-				<li>
-            		<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
-            		<select name="internal" multiple>
-			            <option value="heart">Heart Problem</option>
-			            <option value="pregnancy">Pregnancy</option>
-			            <option value="cancer">Cancer</option>
-            		</select>
-            		<div class="item-content">
-                		<div class="item-inner">
-                		<div class="item-title-row">
-                			<div class="item-title">Internal Illness</div>
-                    		<div class="item-text">Possibility on available methods, where to get it, how to use it and answer any worries or questions.</div>
-                		</div>
-                		</div>
-            		</div>
-            		</a>
-				</li>
-			</ul>
+				</div>
+				<div class="swiper-slide">
+					<div class="content-block-title">Select categories you can give advice on:</div>
+					<div class="list-block">
+					<ul>
+						<li>
+							<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
+							<select name="physical-ill" multiple>
+								<option value="Rash">Rash</option>
+								<option value="Joint-pain">Joint Pain</option>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Physical Illness</div>
+									<div class="item-text">Advise on available methods, where to get it, how to use it and answer any worries or questions.</div>
+								</div>
+								</div>
+							</div>
+							</a>
+						</li>
+
+						<li>
+							<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
+							<select name="mental" multiple>
+								<option value="Dementia">Dementia</option>
+								<option value="Drinking">Drinking Habit</option>
+								<option value="Sleep-deprivation">Sleep Deprivation</option>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Mental Well-being</div>
+									<div class="item-text">Suggestions on available methods, where to get it, how to use it and answer any worries or questions.</div>
+								</div>
+								</div>
+							</div>
+							</a>
+						</li>
+						
+						<li>
+							<a href="#" class="item-link smart-select" data-open-in="picker" data-picker-close-text="Add Issue">
+							<select name="internal" multiple>
+								<option value="Heart">Heart Problem</option>
+								<option value="Pregnancy">Pregnancy</option>
+								<option value="Cancer">Cancer</option>
+							</select>
+							<div class="item-content">
+								<div class="item-inner">
+								<div class="item-title-row">
+									<div class="item-title">Internal Illness</div>
+									<div class="item-text">Possibility on available methods, where to get it, how to use it and answer any worries or questions.</div>
+								</div>
+								</div>
+							</div>
+							</a>
+						</li>
+					</ul>
+					</div>
+					<div class="content-block" style="margin-top: 3em">
+						<a href="#" class="button button-fill button-raised form-to-data" id="btn-introform-submit">Start</a>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>            
+        	
 		</form>
-		<div class="content-block">
-  			<a href="#" class="button button-fill button-raised form-to-data" id="btn-introform-submit">Start</a>
-		</div>
+		
 	</div>
 </div>
