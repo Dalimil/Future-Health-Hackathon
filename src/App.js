@@ -22,14 +22,6 @@ class App {
 
         document.addEventListener("deviceready", this.onDeviceReady);
 
-        $(".nav-messages").click(() => {
-            this.mainView.router.loadPage('messages.html');
-        });
-
-        $("#button-issue").click(() =>{
-            this.mainView.router.loadPage('form.html');
-        });
-
         this.onMessagesInit();
         this.onHomeInit();
         this.checkFirstVisit();
@@ -58,7 +50,6 @@ class App {
     }
 
     onSkeletonInit() {
-        console.log("ok");
         $(".skeleton-view")
             .scrollTop($("body").height()/2)
             .scrollLeft($("body").width()/4);
@@ -75,8 +66,8 @@ class App {
             console.log(e.offsetX, e.offsetY);
             console.log(e.clientX, e.clientY);
             $(".skeleton-view .pain").css({
-                top: (e.clientY - 15) + "px",
-                left: (e.clientX - 15)+ "px"
+                top: (e.clientY - 25) + "px",
+                left: (e.clientX - 25)+ "px"
             }).show();
 
             const clickedLink = this;
@@ -125,35 +116,21 @@ class App {
 
     checkFirstVisit() {
         // comment out 'if' to debug
-        if (true || this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
+        if (this.storage.getItem(App.FIRST_VISIT_KEY) == null) {
             //$(".nav-forward").show();
-            this.mainView.router.loadPage('hello.html');
+            this.mainView.router.loadPage('intro.html');
             this.storage.setItem(App.FIRST_VISIT_KEY, "-");
             /*$(".nav-forward").click(function() {
                 $(this).hide();
             });*/
         }
 
-        this.app.onPageInit('hello', (page) => {
-            console.log("hello initialized");
-            $("#btn-next").click(() => {
-              this.mainView.router.loadPage('intro.html');  
-            });  
-        });
-
-        this.app.onPageInit('avatar', (page) => {
-            console.log("avatar initialized");
-            $("#btn-next-ava").click(() => {
-              this.mainView.router.loadPage('index.html');  
-            });  
-        });
-
         this.app.onPageInit('intro', (page) => {
             console.log("intro initialized");
             $("#btn-introform-submit").click(() => {
               const formData = this.app.formToData('#intro-form');
               this.storage.setItem(App.FIRST_VISIT_DATA, JSON.stringify(formData));
-              this.mainView.router.loadPage('avatar.html');  
+              this.mainView.router.loadPage('index.html');  
             });  
         });
     }
